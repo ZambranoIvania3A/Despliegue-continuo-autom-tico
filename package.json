@@ -4,7 +4,8 @@
   "description": "Mi aplicación Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --ci --runInBand"
+    "test": "npx jest --ci --runInBand",
+    "start": "node script.js"
   },
   "jest": {
     "testEnvironment": "node"

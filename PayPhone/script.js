@@ -73,7 +73,7 @@ document.getElementById("payButton").addEventListener("click", () => {
         return;
     }
 
-const storeId = "bwIQRyykLUunE09RbMftw";
+const storeId = "l2e7gf4BEerGdxSfAhgA";
 const token = "Gn5YG2pfiMOwxcY-l58PQqLaqi_J82as0-MrVhjhn2WjA8XTEULcV_KpHp5bZLi5RL-dYT3vgP75GfhG4pEoFxG7tqzsTM097OEfomyKO-pKmwvklVeGvVl8yQnTZlZl0e2Wvbb8XYglh1JLYeR2n1NOZbSS6A8tjJSrZK0kUdVnBzIgcnRYWwwRtXp7hlH-UjzUH70syji-4ePx_2u8n4DxxmKqG1m3t-PRDvSrUFmqoQNhxDLFojxTXaa4R6doUxqYmtgC8VPwAXgDGES2G3Q0a3bG6X3aH4wjzA95XdTBgXUJcqLBOZUKSqrh2gqsezSTRVEa-BW4y3_fCLROCMSAE7o";
     // Conversión a centavos
     const amountWithTax = Math.round(subtotalVal * 100);   // base gravada
