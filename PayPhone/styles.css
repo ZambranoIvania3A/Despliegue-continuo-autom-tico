@@ -1,6 +1,6 @@
 :root {
     --primary-dark: #8b4352;
-    --mauve-gradient: linear-gradient(135deg, #a6586b 0%, #000000 50%, #ffffff 100%);
+   --mauve-gradient: linear-gradient(135deg, #a6586b 0%, #8b4352 50%, #ffffff 100%);
     --glass-white: rgba(255, 255, 255, 0.95);
     --dark-text: #000000;
 }
