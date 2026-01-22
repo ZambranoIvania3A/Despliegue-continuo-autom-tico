@@ -73,8 +73,8 @@ document.getElementById("payButton").addEventListener("click", () => {
         return;
     }
 
-const storeId = "2de59cc3-93f8-49d6-a3fd-d467ced314e0";
-const token = "iGeBjqW1-YGkXcdSZnXer7oOcCt5zgdWtvbd4WsZL1GNAoqui814eJnMq-tc4Z-vzCArdEtAXA6g0eA4gmeYT-YyIPJAm4X7ImBMOVHdrYeHQPLqxSGItG5r6lGi0zLRpZMhNloDysu07ZFLgZObTIMP9ECwVYvkbY6eO1i82PH9vxjs_3-ln8z-OkQLHiY40bqbAIEIbHUmXF_oKX1p5Zvpg1QGWaJUxNtd0_navM6fMj9pueaL-qAo_lc3oep0XmTxiN1KYBisxk5VTbydBBG4G_a4vP_AVpz0BBM4A3-sSCKaVG1akC7cLrIfrvkByCPEcg";
+const storeId = "bwIQRyykLUunE09RbMftw";
+const token = "Gn5YG2pfiMOwxcY-l58PQqLaqi_J82as0-MrVhjhn2WjA8XTEULcV_KpHp5bZLi5RL-dYT3vgP75GfhG4pEoFxG7tqzsTM097OEfomyKO-pKmwvklVeGvVl8yQnTZlZl0e2Wvbb8XYglh1JLYeR2n1NOZbSS6A8tjJSrZK0kUdVnBzIgcnRYWwwRtXp7hlH-UjzUH70syji-4ePx_2u8n4DxxmKqG1m3t-PRDvSrUFmqoQNhxDLFojxTXaa4R6doUxqYmtgC8VPwAXgDGES2G3Q0a3bG6X3aH4wjzA95XdTBgXUJcqLBOZUKSqrh2gqsezSTRVEa-BW4y3_fCLROCMSAE7o";
     // Conversión a centavos
     const amountWithTax = Math.round(subtotalVal * 100);   // base gravada
     const tax = Math.round(ivaVal * 100);                  // IVA
