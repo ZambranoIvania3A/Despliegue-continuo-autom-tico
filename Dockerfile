@@ -19,3 +19,5 @@ EXPOSE 3000
 
 # Comando para iniciar la aplicación
 CMD ["node", "index.js"]
+
+COPY PayPhone/ ./PayPhone/
