@@ -1,19 +1,30 @@
 const express = require("express");
 const fs = require("fs");
+const path = require('path'); 
 const app = express();
 const PORT = 3000;
-
-const path = require('path');
 
 // Archivo JSON que actúa como base de datos
 const DB_FILE = "./users.json";
 
-app.use(express.static(path.join(__dirname, 'PayPhone')));
-
-// Middleware para manejar JSON
+// 1. Middleware para manejar JSON (Siempre al inicio)
 app.use(express.json());
 
-// Función para leer el archivo JSON
+// 2. RUTA RAÍZ (ESTA ES LA QUE EVALÚA EL TEST DE JENKINS)
+// Debe ir ANTES del static para tener prioridad y devolver el JSON
+app.get("/", (req, res) => {
+  const msg = {
+    message: "Servidor en ejecucion en el puerto 3000",
+    status: 200,
+  };
+  res.json(msg);
+});
+
+// 3. Servir archivos estáticos (Tu carpeta PayPhone)
+// NOTA: Para ver tu diseño, ahora deberás entrar a: http://localhost:3000/index.html
+app.use(express.static(path.join(__dirname, 'PayPhone')));
+
+// --- FUNCIONES DE BASE DE DATOS ---
 const readDatabase = () => {
   try {
     const data = fs.readFileSync(DB_FILE, "utf8");
@@ -24,19 +35,11 @@ const readDatabase = () => {
   }
 };
 
-// Función para escribir en el archivo JSON
 const writeDatabase = (data) => {
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), "utf8");
 };
 
-// CRUD de usuarios
-app.get("/", (req, res) => {
-  const msg = {
-    message: "Servidor en ejecucion en el puerto 3000",
-    status: 200,
-  };
-  res.json(msg);
-});
+// --- CRUD DE USUARIOS ---
 
 // 1. Obtener todos los usuarios
 app.get("/users", (req, res) => {
@@ -104,24 +107,21 @@ app.delete("/users/:id", (req, res) => {
 app.get("/users/:id", (req, res) => {
   const users = readDatabase();
   const userId = req.params.id;
-  const updatedUser = req.body;
+  
+  const user = users.find((u) => u.id === userId);
 
-  const userIndex = users.findIndex((user) => user.id === userId);
-
-  if (userIndex === -1) {
+  if (!user) {
     return res.status(404).json({ error: "User not found" });
   }
-
-  const user = users[userIndex];
 
   res.json({ user });
 });
 
-//se agrego para el test
+// EXPORTAR APP (Vital para que Jest funcione)
 module.exports = app;
 
-//Iniciar el servidor
-if (require.main == module) {
+// Iniciar el servidor (Solo si no es un test)
+if (require.main === module) {
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
   });
